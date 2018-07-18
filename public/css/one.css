@@ -1,0 +1,136 @@
+﻿body {
+    margin: 0;
+    /*font-family: "Open Sans", "Helvetica Neue", Helvetica, "BBAlpha Sans", "S60 Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;*/
+    font-family: "-apple-system","BlinkMacSystemFont","Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei","sans-serif";
+}
+
+.container {
+    max-width: 800px;
+    padding-top: 4px;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.content{
+    padding-left: 0;
+    padding-right: 0;
+}
+  
+.one-image {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.one-image img {
+    width: 100%;
+}
+
+.one-image-footer {
+    margin-bottom: 10px;
+}
+
+.one-image-footer-left {
+    float: left;
+    font-size: 16px;
+    height: 44px;
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.one-image-footer-right {
+    float: right;
+    font-size: 16px;
+    height: 44px;
+    line-height: 44px;
+    text-align: end;
+    vertical-align: middle;
+}
+
+.one-cita-wrapper {
+    background-color: #f2f2f2;
+    display: table;
+    height: 180px;
+    margin-bottom: 30px;
+}
+
+.one-cita {
+    font-size: 15px;
+    margin-right: 80px;
+    display: table-cell;
+    height: 120px;
+    vertical-align: middle;
+    width: 100%;
+    padding: 10px 5%;
+}
+
+.one-cita-wrapper .one-pubdate {
+    width: 120px;
+    color: #01aef0;
+    padding: 50px 0;
+}
+
+.one-cita-wrapper .one-pubdate .dom {
+    font-size: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.one-cita-wrapper .one-pubdate .may {
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+}
+
+.one-pager{
+    padding-top: 20px;
+}
+
+.one-pager .previous {
+    float: left;
+}
+
+.one-pager .next {
+    float: right;
+}
+
+/*.one-pager*/ 
+a{
+    color: #57bae8;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+ 
+.avatar{
+    height: 48px;
+    width: 48px;
+}
+
+.essay-detail .avatar {
+    height: 24px;
+    width: 24px;
+}
+
+.essay-content {
+    font-size: 15px;
+    line-height: 30px;
+    margin-top: 14px;
+    text-size-adjust: 100%;
+}
+
+.text-editor{
+    font-size: 12px;
+    font-style: italic;
+    line-height: 32px;
+    color: rgb(128,128,128);
+}
+
+.author-introduce{
+    color: rgb(128,128,128);
+    font-size: 12px;
+    line-height: 20px;
+
+}
