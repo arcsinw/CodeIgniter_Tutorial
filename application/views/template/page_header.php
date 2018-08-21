@@ -12,9 +12,9 @@
         
         <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li><a href="contents">首页</a></li>
-                <li><a href="/essays">文章</a></li>
-                <li><a href="/movies">电影</a></li>
+                <li><a href="contents">CI</a></li>
+                <li><a href="/essays">Git</a></li>
+                <li><a href="/movies">CSS & JS</a></li>
             </ul>
 
             <div class="navbar-right nav navbar-nav">

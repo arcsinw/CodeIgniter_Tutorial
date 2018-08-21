@@ -1,5 +1,5 @@
 <?php
-class Content_model extends CI_Model
+class Content_Model extends CI_Model
 {
     // public $post_date;
     // public $title;
