@@ -12,11 +12,11 @@ class Content extends CI_Controller
     {
         if ($id == -1)
         {
-            $data['current'] = $this->Content_model->get_contents();
+            $data['current'] = $this->Content_Model->get_contents();
         }
         else
         {
-            $data['current'] = $this->Content_model->get_content($id);
+            $data['current'] = $this->Content_Model->get_content($id);
         }
 
         $data['page'] = "content/index";

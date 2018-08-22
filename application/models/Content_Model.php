@@ -7,13 +7,13 @@ class Content_Model extends CI_Model
     // public $picture_author;
     // public $text;
     // public $text_author;
-    public $expire_time = 60 * 12; //minutes
+    //public $expire_time = 60 * 12; //minutes
 
     public function __construct()
     {
         parent::__construct();
         $this->load->database();
-        $this->output->cache($this->expire_time);
+        //$this->output->cache($this->expire_time);
         $this->output->enable_profiler(TRUE);
         $sections = array(
             'uri_string' => TRUE,
@@ -33,14 +33,4 @@ class Content_Model extends CI_Model
         $query = $this->db->query("select * from content where id = $id");
         return current($query->result_array());
     }
-
-    // public function __get($key)
-    // {
-    //     return $this->$key;
-    // }
-
-    // public function __set($key, $value)
-    // {
-    //     $this->$key = $value;
-    // }
 }

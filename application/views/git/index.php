@@ -5,7 +5,7 @@
     var converter = new showdown.Converter();
     //text      = '# hello, markdown!';
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '<?=base_url('/public/files/css.md');?>', true);
+    xhr.open('GET', '<?=base_url('/public/files/git.md');?>', true);
     xhr.onreadystatechange = function()
     {
         if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304)

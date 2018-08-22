@@ -19,3 +19,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.render_body{
+    margin: 40px;
+}
