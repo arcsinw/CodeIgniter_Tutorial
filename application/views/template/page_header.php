@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#">Once</a>
+            <a class="navbar-brand" href="#">CAC</a>
         </div>
         
         <div class="navbar-collapse collapse ">
