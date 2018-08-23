@@ -18,3 +18,4 @@ application/logs/*
 
 .vscode/
 system/session
+/.idea/

@@ -13,6 +13,9 @@
         <script src="<?=base_url('/public/bootstrap/js/bootstrap.js');?>"></script>
         <script src="<?=base_url('/public/js/modernizr-2.6.2.js');?>"></script>
         <script src="<?=base_url('/public/js/respond.js');?>"></script>
+
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     </head>
     <body>
         <?php $this->load->view('template/page_header'); ?>
