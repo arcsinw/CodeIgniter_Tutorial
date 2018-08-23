@@ -1,7 +1,7 @@
 ﻿body {
     margin: 0;
-    /*font-family: "Open Sans", "Helvetica Neue", Helvetica, "BBAlpha Sans", "S60 Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;*/
-    font-family: "-apple-system","BlinkMacSystemFont","Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei","sans-serif";
+    
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", "PingFang SC", "sans-serif";
 }
 
 .container {

@@ -1,16 +1,33 @@
-# CodeIgniter Jump Start
+# 目录
+[1. Create your first CodeIgniter project](#1)
 
-[1.一级目录](#1一级目录)
-    [1.1二级目录](#1.1)
-        [1.1.1三级目录](#1ji)
+- [1.1. Model](#1.1)
 
-<h2 id="1一级目录"> 一级目录 </h2>
+- [1.2 Controller](#1.2)
+    
+    - [1.2.1 路由](#1.2.1)
 
-<h4 id='1.1'> 二级目录 </h4>
+    - [1.2.2 传参](#1.2.2)
 
-<h5 id='1ji'> 三级目录 </h5>
+- [1.3 View](#1.3)
 
-## 1. Create your first CodeIgniter project
+    - [1.3.1 使用模板页](#1.3.1)
+
+- [1.4 其他](#1.4)
+
+    - [1.4.1 辅助函数](#1.4.1)
+
+    - [1.4.2 钩子](#1.4.2)
+
+    - [1.4.3 错误处理](#1.4.3)
+
+    - [1.4.4 网页缓存](#1.4.4)
+
+    - [1.4.5 多环境处理](#1.4.4)
+
+---
+
+<h2 id="1">1. Create your first CodeIgniter project</h1>
 
 > 需预先配置好PHP和Apache环境
 
@@ -29,11 +46,13 @@
 
 进入`application`，首先关注`controller`、`models`、`views`这三个文件夹，显然这是个`MVC`(Model-View-Controller)的结构
 
-![flow](appflowchart.gif)
+![flow](/tutorial/public/images/appflowchart.gif)
 
 MVC的结构我习惯Model->Controller->view这样写
 
-### Model
+---
+
+<h3 id="1.1">1.1 Model</h3>
 
 `model`负责和数据库交互，包含很多数据库相关方法
 
@@ -96,7 +115,9 @@ class Content_model extends CI_Model // 要继承CI_Model
 
 数据库查询当然是直接用sql语句直观，但CI也提供了[查询构造器类](http://codeigniter.org.cn/user_guide/database/query_builder.html)，感兴趣的就自己去看
 
-### Controller
+---
+
+<h3 id="1.2">1.2 Controller</h3>
 
 `controller`连接`View`和`Model`，内部有很多函数，配合数据库处理用户的请求
 
@@ -133,9 +154,7 @@ class Content extends CI_Controller
 }
 ```
 
-上面的代码有两种传参
-
-1.给`controller`内的函数传参（配合路由)
+<h4 id="1.2.1">1.2.1 路由</h4>
 
 先说下路由，路由是`controller`中重要的部分，决定URL和`controller`中的方法的映射关系
 
@@ -153,6 +172,12 @@ localhost/content/
 ```
 
 路由的设置在`config/routes.php`中
+
+<h4 id="1.2.2">1.2.2 传参</h4>
+
+上面的代码有两种传参
+
+1.给`controller`内的函数传参
 
 localhost/tutorial/index.php/content/128
 localhost/tutorial/index.php/content/index/128
@@ -188,7 +213,9 @@ $this->load->view('template/index', $data);
 <title><?php echo $title ?></title>
 ```
 
-### View
+---
+
+<h3 id="1.3">1.3 View</h3>
 
 数据有了就可以开始写页面了，按下面的文件结构创建好文件（无后缀的是文件夹）
 
@@ -198,7 +225,7 @@ $this->load->view('template/index', $data);
         --index.php
 ```
 
-（只是一部分代码）
+（只是一部分代码，最终版本可从Github上下载）
 
 ```php
 <html>
@@ -249,6 +276,8 @@ $this->load->view('template/index', $data);
 </html>
 ```
 
+<h4 id="1.3.1">使用模板页</h4>
+
 考虑到网页的一些部分是固定不变的，比如`header`（顶部的导航栏）和`footer`（顶部的版权信息），每个页面里都把代码重新抄一遍没有必要，可以考虑写一个模板页，
 
 在`views`文件夹中新建一个`template`文件夹
@@ -264,19 +293,19 @@ $this->load->view('template/index', $data);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
-            <a class="navbar-brand" href="#">Once</a>
+            <a class="navbar-brand" href="content">CAC</a>
         </div>
 
         <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li><a href="/">首页</a></li>
-                <li><a href="/essays">文章</a></li>
-                <li><a href="/movies">电影</a></li>
+                <li><a href="<?=base_url('codeigniter');?>">CodeIgniter</a></li>
+                <li><a href="<?=base_url('git');?>">Git</a></li>
+                <li><a href="<?=base_url('css');?>">CSS</a></li>
+                <li><a href="<?=base_url('js');?>">JavaScript</a></li>
             </ul>
 
             <div class="navbar-right nav navbar-nav">
-                <li><a href="/admin">Admin</a></li>
+                <!-- <li><a href="admin">Admin</a></li> -->
             </div>
         </div>
     </div>
@@ -291,7 +320,7 @@ footer一般放一些版权信息
 ```php
 <div id="footer">
     <footer>
-        <p style="text-align: center">&copy; <?php echo date('Y')?> - ARCSINW</p>
+        <p style="text-align: center">&copy; <?php echo date('Y')?> - CAC</p>
     </footer>
 </div>
 ```
@@ -301,23 +330,29 @@ footer一般放一些版权信息
 整合前面的`header`和`footer`，其中的`$page`是通过`controller`传递过来的参数
 
 ```php
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $title ?></title>
         <link rel="stylesheet" href="<?=base_url('/public/css/one.css');?>" type="text/css" />
-        <link rel="stylesheet" href="<?=base_url('/public/css/bootstrap.css');?>" type="text/css" />
-        <link rel="stylesheet" href="<?=base_Url('/public/css/site.css');?>" type="text/css" />
+        <link rel="stylesheet" href="<?=base_url('/public/bootstrap/css/bootstrap.min.css');?>" type="text/css" />
+        <link rel="stylesheet" href="<?=base_url('/public/css/site.css');?>" type="text/css" /> 
 
-        <script src="<?=base_url('/public/js/jquery-1.10.2.js');?>"></script>
-        <script src="<?=base_url('/public/js/bootstrap.js');?>"></script>
+        <script src="<?=base_url('/public/showdown/showdown.min.js');?>"></script>
+        <script src="<?=base_url('/public/js/jquery-1.10.2.js');?>"></script> 
+        <script src="<?=base_url('/public/bootstrap/js/bootstrap.js');?>"></script>
         <script src="<?=base_url('/public/js/modernizr-2.6.2.js');?>"></script>
         <script src="<?=base_url('/public/js/respond.js');?>"></script>
     </head>
     <body>
         <?php $this->load->view('template/page_header'); ?>
-        <?php $this->load->view($page); ?>
+
+        <div class="render_body">
+            <?php $this->load->view($page); ?>
+        </div>
+
         <?php $this->load->view('template/page_footer'); ?>
     </body>
 </html>
@@ -350,50 +385,95 @@ JS & CSS & Images的存放与使用
 试试[localhost/tutorial/index.php/content](localhost/tutorial/index.php/content)
 现在就得到了一个简单的动态网页
 
+---
 
-    辅助函数
+<h3 id="1.4">1.4 其他</h4>
 
-    类库
+<h4 id="1.4.1">1.4.1 辅助函数</h5>
 
-    钩子可以用来在程序执行流程中加入自己的动作，
-比如在执行需要登陆的操作前检测用户是否登陆
+即其他网页框架中自己创建的Helper类，一般是一些常用的方法，CI中的Helper类加载之后不需要类名可直接使用
 
+比如`helpers/cac_time_helper.php`中实现了时间字符串的格式化，在Controller中load后可直接在View中使用
 
-    错误处理
+<h4 id="1.4.2">1.4.2 钩子</h5>
 
-    //1 错误
-    //2 调试
-    //3 一般信息
-    $config['log_threshold'] = 1; 
+钩子可以用来在程序执行流程中加入自己的动作，比如在执行需要登陆的操作前检测用户是否登陆
 
+1.启用钩子
 
-    网页缓存
-    处理多环境
+**application/config/config.php**
 
+```php
+$config['enable_hooks'] = TRUE;
+```
 
+2.定义钩子
 
-## 2. 项目相关
+$hook['post_controller_constructor'] = array(
+    'class' => 'UserCheck',
+    'function' => 'check_login_state',
+    'filename' => 'UserCheck.php',
+    'filepath' => 'hooks',
+    'params' => '',
+);
 
-### [Bootstrap Table](http://bootstrap-table.wenzhixin.net.cn/zh-cn/)
+- class 你希望调用的类名，如果你更喜欢使用过程式的函数的话，这一项可以留空。
+- function 你希望调用的方法或函数的名称。
+- filename 包含你的类或函数的文件名。
+- filepath 包含你的脚本文件的目录名。 注意： 你的脚本必须放在 application/ 目录里面，所以 filepath 是相对 application/ 目录的路径，举例来说，如果你的脚本位于 application/hooks/ ，那么 filepath 可以简单的设置为 'hooks' ，如果你的脚本位于 application/hooks/utilities/ ， 那么 filepath 可以设置为 'hooks/utilities' ，路径后面不用加斜线。
+- params 你希望传递给你脚本的任何参数，可选。
 
-### 模态框
+`post_controller_constructor`时挂钩点，指定钩子被触发的场景
 
--
+具体的场景参考 [钩子 - 扩展框架核心](http://codeigniter.org.cn/user_guide/general/hooks.html)
 
-### 标签页
+<h4 id="1.4.3">1.4.3 错误处理</h5>
 
-- [Tabs](https://v3.bootcss.com/javascript/#tabs)
+当网页出错时可以选择跳转error page或404，在CI中都有默认的模板可以修改样式
 
-### 导航栏
+```php
+//展示错误页面 默认是application/views/errors/html/error_general.php
+show_error($message, $status_code, $heading = 'An Error Was Encountered')
 
-    纯CSS的简单导航栏
+//展示404页面 默认是application/views/errors/html/error_404.php
+show_404($page = '', $log_error = TRUE)
+```
 
-    bootstrap的导航栏
+写日志
 
-### 树形菜单
+```php
+/**
+* @param $level log level 'error' 'debug' 'info'
+* @param $message
+**/
+log_message($level, $message)
 
-- [metisMenu.js](http://mm.onokumus.com/mm-vertical.html)
+//要保证日志文件正常写入，logs/目录可写，设置config.php
 
-### 分页
+//0 禁用日志
+//1 错误
+//2 调试
+//3 一般信息
+$config['log_threshold'] = 1;
+```
 
-    从数据库取数据的时候就分好页
+<h4 id="1.4.4">1.4.4 网页缓存</h5>
+
+当网页的内容更新频率不高时可以开启缓存减轻一些服务器压力（主要是数据库），产生类似静态网页的效果
+
+>当页面第一次加载时，缓存将被写入到 application/cache 目录下的文件中去。 之后请求这个页面时，就可以直接从缓存文件中读取内容并输出到用户的浏览器。 如果缓存过期，会在输出之前被删除并重新刷新。
+
+```php
+$expire_time = 60;
+$this->output->cache($expire_time); //缓存每60分钟过期
+
+// Deletes cache for the currently requested URI
+$this->output->delete_cache();
+
+// Deletes cache for /foo/bar
+$this->output->delete_cache('/foo/bar');
+```
+
+<h4 id="1.4.5">1.4.5 处理多环境 (development or production)</h5>
+
+对当前环境判断来产生不同的表现，比如开发时的错误界面显示详细信息，上线时则简单地显示信息

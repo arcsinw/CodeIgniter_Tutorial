@@ -1,5 +1,8 @@
 <div class="row">
-    <div class="col-md-6">       
+    <div id="doc" class="col-md-7">
+
+    </div>
+    <div class="col-md-5">       
         <div class="one-image">
             <img class="img-rounded" src="<?php echo $current['ImgUrl'] ?>" alt="">
         </div>
@@ -20,10 +23,10 @@
 
             <div class="one-pubdate">
                 <p class="dom">
-                    <?php $current['PostDate'] ?>
+                    <?php echo date('d', strtotime($current['PostDate'])) ?>
                 </p>
                 <p class="may">
-                    <?php $current['PostDate'] ?>
+                    <?php echo time_convert($current['PostDate']) ?>
                 </p>
             </div>
 
@@ -32,21 +35,25 @@
 
         <!--上一篇&下一篇-->
         <div class="one-pager">
-            <a class="previous">上一篇：无</a>
+            <?php if (isset($prev)) :?>
+                <a class="previous" href="<?=base_url('content/'.$prev['Id']);?>">上一篇：<?php echo $prev['Title']?></a>
+            <?php else:?>
+                <a class="previous disabled">上一篇：无</a>
+            <?php endif?>
         
-            <a class="next disabled">下一篇：无</a>
+            <?php if (isset($next)) :?>
+                <a class="next" href="<?=base_url('content/'.$next['Id']);?>">下一篇：<?php echo $next['Title']?></a>
+            <?php else:?>
+                <a class="next disabled">下一篇：无</a>
+            <?php endif?>
         </div>
-    </div>
-
-    <div id="doc" class="col-md-6">
-
     </div>
 </div>
 
 <script>
     var converter = new showdown.Converter();
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '<?=base_url('/public/files/ci.md');?>', true);
+    xhr.open('GET', '<?=base_url('/public/files/ci_1.md');?>', true);
     xhr.onreadystatechange = function()
     {
         if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304)

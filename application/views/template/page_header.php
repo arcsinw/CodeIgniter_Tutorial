@@ -6,16 +6,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
             <a class="navbar-brand" href="content">CAC</a>
         </div>
         
         <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li><a href="codeigniter">CodeIgniter</a></li>
-                <li><a href="git">Git</a></li>
-                <li><a href="css">CSS</a></li>
-                <li><a href="js">JavaScript</a></li>
+                <li><a href="<?=base_url('codeigniter');?>">CodeIgniter</a></li>
+                <li><a href="<?=base_url('git');?>">Git</a></li>
+                <li><a href="<?=base_url('css');?>">CSS</a></li>
+                <li><a href="<?=base_url('js');?>">JavaScript</a></li>
             </ul>
 
             <div class="navbar-right nav navbar-nav">

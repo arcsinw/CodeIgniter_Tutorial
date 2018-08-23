@@ -3,6 +3,9 @@
 
     </div>
 
+    <div class="clearfix"></div>
+
+
     <div id="doc" class="col-md-6 col-md-offset-6">
 
     </div>
