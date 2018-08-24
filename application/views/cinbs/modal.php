@@ -171,8 +171,11 @@
 	//动态加载模态框代码 end
 
 	//多层模态框代码 begin
+	
+	var modal_count = 0;
 
 	function generateModal(no) {
+		
 		var $modal = $('<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"' + no + '>\n' +
 			'\t<div class="modal-dialog" role="document">\n' +
 			'\t\t<div class="modal-content">\n' +
@@ -194,8 +197,19 @@
 		$modal.find(".confirm").on("click", function () {
 			generateModal(no + 1).modal("show");
 		});
+
+		$($modal).on('shown.bs.modal', function()
+		{
+			modal_count++;
+		});
+
 		$($modal).on('hidden.bs.modal', function (e) {
 			$modal.remove();
+			
+			if (--modal_count > 0)
+			{
+				$('body').addClass('modal-open');
+			}
 		});
         return $modal;
 	}

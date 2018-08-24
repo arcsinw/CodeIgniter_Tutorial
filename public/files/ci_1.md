@@ -161,14 +161,16 @@ class Content extends CI_Controller
 可以参考RESTful风格的url来设置路由
 
 ```txt
-//GET   获取所有的content
-localhost/contents
-//GET   获取指定的content
-localhost/content/3
-//PUT   修改一个content（只需发送要修改的属性）
-localhost/content/3
-//POST  增加一个content
-localhost/content/
+// 获取所有的content
+GET localhost/contents
+// 获取指定的content
+GET localhost/content/3
+// 修改一个content（只需发送要修改的属性）
+PUT localhost/content/3
+// 增加一个content
+POST localhost/content/
+// 删除一个content
+DELETE localhost/content/10
 ```
 
 路由的设置在`config/routes.php`中
