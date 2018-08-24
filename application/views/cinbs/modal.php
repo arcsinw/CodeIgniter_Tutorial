@@ -198,12 +198,12 @@
 			generateModal(no + 1).modal("show");
 		});
 
-		$($modal).on('shown.bs.modal', function()
+		$modal.on('shown.bs.modal', function()
 		{
 			modal_count++;
 		});
 
-		$($modal).on('hidden.bs.modal', function (e) {
+		$modal.on('hidden.bs.modal', function () {
 			$modal.remove();
 			
 			if (--modal_count > 0)
