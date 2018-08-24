@@ -12,7 +12,7 @@
         <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
                 <li><a href="<?=base_url('content');?>">CodeIgniter</a></li>
-				<li><a href="<?=base_url('cinbs');?>">CI&BootStrap</a></li>
+				<li><a href="<?=base_url('cinbs');?>">BootStrap</a></li>
                 <li><a href="<?=base_url('git');?>">Git</a></li>
                 <li><a href="<?=base_url('css');?>">CSS</a></li>
                 <li><a href="<?=base_url('js');?>">JavaScript</a></li>
