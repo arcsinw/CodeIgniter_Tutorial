@@ -81,6 +81,9 @@
 	}
 	xhr.send();
 
+	$('pre code').each(function (i, block) {
+		hljs.highlightBlock(block);
+	});
 
 	function queryParams(params) {
 		$('#toolbar').find('input[name]').each(function () {
