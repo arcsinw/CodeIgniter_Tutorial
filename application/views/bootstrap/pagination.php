@@ -32,7 +32,7 @@
 			   data-method="post"
 			   data-query-params="queryParams"
 			   data-content-type="application/x-www-form-urlencoded"
-			   data-url="<?=base_url('/cinbs/getAnswer');?>"
+			   data-url="<?=base_url('/bootstrap/getAnswer');?>"
 			   data-height="400"
 			   data-side-pagination="server"
 			   data-pagination="true"
@@ -52,26 +52,24 @@
 		</table>
 	</div>
 
-	<div id="doc">
+	<article class="markdown-body col-md-8 col-md-offset-2" id="doc">
+
+	</article>
+
+	
+	<!--上一篇&下一篇-->
+	<div class="one-pager col-md-8 col-md-offset-2">
+		<a class="previous" href="<?=base_url('/bootstrap/modal');?>">上一篇：CI和Bootstrap模态框</a>
+
+		<a class="next disabled">下一篇：无</a>
 	</div>
-
-	<div>
-
-		<!--上一篇&下一篇-->
-		<div class="one-pager">
-			<a class="previous" href="<?=base_url('/cinbs/modal');?>">上一篇：CI和Bootstrap模态框</a>
-
-			<a class="next disabled">下一篇：无</a>
-		</div>
-	</div>
-
 </div>
 
 
 <script>
 	var converter = new showdown.Converter();
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', '<?=base_url('/public/files/cinbs/pagination.md');?>', false);
+	xhr.open('GET', '<?=base_url('/public/files/bootstrap/pagination.md');?>', false);
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) {
 			text = xhr.responseText;

@@ -6,15 +6,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?=base_url('');?>">CAC</a>
+            <a class="navbar-brand">CAC</a>
         </div>
         
         <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li><a href="<?=base_url('content');?>">CodeIgniter</a></li>
-				<li><a href="<?=base_url('cinbs');?>">BootStrap</a></li>
+                <li><a href="<?=base_url('codeigniter');?>">CodeIgniter</a></li>
+				<li><a href="<?=base_url('bootstrap');?>">BootStrap</a></li>
                 <li><a href="<?=base_url('git');?>">Git</a></li>
-                <li><a href="<?=base_url('css');?>">CSS</a></li>
+                <li><a href="<?=base_url('html');?>">HTML/CSS</a></li>
                 <li><a href="<?=base_url('js');?>">JavaScript</a></li>
             </ul>
 

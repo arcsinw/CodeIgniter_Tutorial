@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="<?=base_url('/public/css/one.css');?>" type="text/css" />
         <link rel="stylesheet" href="<?=base_url('/public/bootstrap/css/bootstrap.min.css');?>" type="text/css" />
         <link rel="stylesheet" href="<?=base_url('/public/css/site.css');?>" type="text/css" /> 
+        <link rel="stylesheet" href="<?=base_url('/public/css/github_markdown.css');?>" type="text/css" /> 
         <link rel="stylesheet" href="<?=base_url('/public/bootstrap/css/bootstrap-datetimepicker.min.css');?>" type="text/css" />
 
         <script src="<?=base_url('/public/showdown/showdown.min.js');?>"></script>

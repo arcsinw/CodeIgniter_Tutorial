@@ -1,5 +1,5 @@
 <?php
-class CSS extends CI_Controller
+class Html extends CI_Controller
 {
     public function __construct()
     {
@@ -9,8 +9,8 @@ class CSS extends CI_Controller
 
     public function index()
     {
-        $data['page'] = 'css/index';
-        $data['title'] = 'CSS';
+        $data['page'] = 'html/index';
+        $data['title'] = 'Html/CSS';
         $this->load->view('template/index', $data);
     }
 }

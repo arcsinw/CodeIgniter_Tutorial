@@ -1,8 +1,6 @@
 <div class="row">
-    <div id="doc" class="col-md-7">
-
-    </div>
-    <div class="col-md-5">       
+    
+    <div class="col-md-6 col-md-offset-3">       
         <div class="one-image">
             <img class="img-rounded" src="<?php echo $current['ImgUrl'] ?>" alt="">
         </div>
@@ -48,20 +46,7 @@
             <?php endif?>
         </div>
     </div>
+
+   
 </div>
 
-<script>
-    var converter = new showdown.Converter();
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '<?=base_url('/public/files/ci_1.md');?>', true);
-    xhr.onreadystatechange = function()
-    {
-        if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304)
-        {
-            text = xhr.responseText;
-            html      = converter.makeHtml(text);
-            document.getElementById('doc').innerHTML = html;
-        }
-    }
-    xhr.send();
-</script>

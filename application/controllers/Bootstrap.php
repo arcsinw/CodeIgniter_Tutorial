@@ -1,5 +1,5 @@
 <?php
-class Cinbs extends CI_Controller
+class Bootstrap extends CI_Controller
 {
     public function __construct()
     {
@@ -9,13 +9,13 @@ class Cinbs extends CI_Controller
 
     public function index()
     {
-        $data['page'] = 'cinbs/index';
+        $data['page'] = 'bootstrap/index';
         $data['title'] = 'BootStrap目录';
         $this->load->view('template/index', $data);
     }
     public function modal()
     {
-        $data['page'] = 'cinbs/modal';
+        $data['page'] = 'bootstrap/modal';
         $data['title'] = 'CI和Bootstrap模态框';
         $this->load->view('template/index', $data);
     }
@@ -28,7 +28,7 @@ class Cinbs extends CI_Controller
 
 	public function pagination()
 	{
-		$data['page'] = 'cinbs/pagination';
+		$data['page'] = 'bootstrap/pagination';
 		$data['title'] = 'CI和Bootstrap分页';
 		$this->load->view('template/index', $data);
 	}

@@ -1,15 +1,16 @@
 <div class="row">
 
-	<div id="doc">
-	</div>
+	<article class="markdown-body col-md-8 col-md-offset-2" id="doc">
+
+	</article>
 
 	<div>
 
 		<!--上一篇&下一篇-->
-		<div class="one-pager">
+		<div class="one-pager col-md-8 col-md-offset-2">
 			<a class="previous disabled">上一篇：无</a>
 
-			<a class="next" href="<?=base_url('/cinbs/pagination');?>">下一篇：CI和Bootstrap分页</a>
+			<a class="next" href="<?=base_url('/bootstrap/pagination');?>">下一篇：CI和Bootstrap分页</a>
 		</div>
 	</div>
 
@@ -111,7 +112,7 @@
 <script>
 	var converter = new showdown.Converter();
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', '<?=base_url('/public/files/cinbs/model.md');?>', false);
+	xhr.open('GET', '<?=base_url('/public/files/bootstrap/model.md');?>', false);
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) {
 			text = xhr.responseText;
@@ -164,7 +165,7 @@
 	$("#exampleButton4").on("click", function () {
 
 		$("#myModal4 .modal-body").html("<p>正在加载...</p>");
-		$("#myModal4 .modal-body").load("<?=base_url('/cinbs/remote');?>");
+		$("#myModal4 .modal-body").load("<?=base_url('/bootstrap/remote');?>");
 
 		$("#myModal4").modal('show');
 	});

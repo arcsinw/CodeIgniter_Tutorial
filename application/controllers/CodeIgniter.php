@@ -9,7 +9,7 @@ class CodeIgniter extends CI_Controller
 
     public function index()
     {
-        $data['page'] = 'ci/index';
+        $data['page'] = 'codeigniter/index';
         $data['title'] = 'CodeIgniter';
         $this->load->view('template/index', $data);
     }

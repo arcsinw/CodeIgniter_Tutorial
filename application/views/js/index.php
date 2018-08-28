@@ -1,6 +1,8 @@
-<div id="doc">
-</div>
+<div class="row">
+    <article class="markdown-body col-md-8 col-md-offset-2" id="doc">
 
+    </article>
+</div>
 <script>
     var converter = new showdown.Converter();
     //text      = '# hello, markdown!';
