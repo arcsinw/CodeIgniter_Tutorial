@@ -115,7 +115,11 @@
 <!-- 分页示例模态框 end -->
 
 <script>
-	var converter = new showdown.Converter();
+	 var converter = new showdown.Converter(
+	{
+		tables: 'true',
+		extensions: ['toc'],
+	});
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', '<?=base_url('/public/files/cinbs/index.md');?>', false);
 	xhr.onreadystatechange = function () {

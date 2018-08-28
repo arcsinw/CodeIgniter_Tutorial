@@ -1,11 +1,6 @@
 
 # Bootstrap
 
-[Bootstrap模态框](/tutorial/bootstrap/modal)
-
-[Bootstrap分页](/tutorial/bootstrap/pagination)
-
-
 Bootstrap是最受欢迎的HTML、CSS和JS框架，用于开发响应式布局、移动设备优先的WEB 项目。
 > Bootstrap中文文档 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Bootstrap文档](https://v3.bootcss.com/getting-started/)
 >

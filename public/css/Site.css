@@ -1,4 +1,8 @@
-﻿/* Override the default bootstrap behavior where horizontal description lists 
+﻿body{
+    font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
@@ -13,7 +17,7 @@ textarea {
 }
 
 .render_body{
-    padding: 45px;
+    padding: 20px 45px;
     /* min-width: 200px;
     max-height: 980px;
     margin: 0 auto;

@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'codeigniter/index';
+$route['default_controller'] = 'html/index';
 $route['(.*)?/(.*)?/(:num)'] = '$1/$2/$3';
 $route['(.*)?/(:num)'] = '$1/index/$2';
 $route['(.*)?/(.*)?'] = '$1/$2';

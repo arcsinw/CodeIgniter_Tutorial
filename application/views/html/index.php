@@ -4,8 +4,11 @@
     </article>
 </div>
 <script>
-    var converter = new showdown.Converter();
-    //text      = '# hello, markdown!';
+    var converter = new showdown.Converter(
+    {
+        tables: 'true',
+        extensions: ['toc'],
+    });
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '<?=base_url('/public/files/html.md');?>', true);
     xhr.onreadystatechange = function()

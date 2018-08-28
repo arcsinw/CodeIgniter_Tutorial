@@ -11,12 +11,12 @@
         
         <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li><a href="<?=base_url('codeigniter');?>">CodeIgniter</a></li>
-				<li><a href="<?=base_url('bootstrap');?>">BootStrap</a></li>
-                <li><a href="<?=base_url('git');?>">Git</a></li>
                 <li><a href="<?=base_url('html');?>">HTML/CSS</a></li>
                 <li><a href="<?=base_url('js');?>">JavaScript</a></li>
-                <li><a href="<?=base_url('cinbs/index');?>">CI&BootStrap</a></li>
+                <li><a href="<?=base_url('bootstrap');?>">BootStrap</a></li>
+                <li><a href="<?=base_url('git');?>">Git</a></li>
+                <li><a href="<?=base_url('codeigniter');?>">CodeIgniter</a></li>
+                <li><a href="<?=base_url('cinbs');?>">CI&BootStrap</a></li>
             </ul>
 
             <div class="navbar-right nav navbar-nav">

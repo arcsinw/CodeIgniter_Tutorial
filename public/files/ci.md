@@ -1,33 +1,19 @@
-# 目录
-[1. Create your first CodeIgniter project](#1)
+[toc]
 
-- [1.1. Model](#1.1)
+# 1. Introduce CodeIgniter
 
-- [1.2 Controller](#1.2)
-    
-    - [1.2.1 路由](#1.2.1)
+> CodeIgniter 是一套给 PHP 网站开发者使用的应用程序开发框架和工具包。 它的目标是让你能够更快速的开发，它提供了日常任务中所需的大量类库， 以及简单的接口和逻辑结构。通过减少代码量，CodeIgniter 让你更加专注 于你的创造性工作。
 
-    - [1.2.2 传参](#1.2.2)
+[下载CodeIgniter](http://codeigniter.org.cn/user_guide/installation/downloads.html)
 
-- [1.3 View](#1.3)
+通过下面四步来安装 CodeIgniter：
 
-    - [1.3.1 使用模板页](#1.3.1)
+1. 解压缩安装包；
+2. 将 CodeIgniter 文件夹及里面的文件上传到服务器，通常 index.php 文件将位于网站的根目录；
+3. 使用文本编辑器打开 application/config/config.php 文件设置你网站的根 URL，如果你想使用加密或会话，在这里设置上你的加密密钥；
+4. 如果你打算使用数据库，打开 application/config/database.php 文件设置数据库参数。
 
-- [1.4 其他](#1.4)
-
-    - [1.4.1 辅助函数](#1.4.1)
-
-    - [1.4.2 钩子](#1.4.2)
-
-    - [1.4.3 错误处理](#1.4.3)
-
-    - [1.4.4 网页缓存](#1.4.4)
-
-    - [1.4.5 多环境处理](#1.4.4)
-
----
-
-<h2 id="1">1. Create your first CodeIgniter project</h1>
+# 2. Create your first CodeIgniter project
 
 > 需预先配置好PHP和Apache环境
 
@@ -52,7 +38,7 @@ MVC的结构我习惯Model->Controller->view这样写
 
 ---
 
-<h3 id="1.1">1.1 Model</h3>
+## 1.1. Model
 
 `model`负责和数据库交互，包含很多数据库相关方法
 
@@ -117,7 +103,7 @@ class Content_model extends CI_Model // 要继承CI_Model
 
 ---
 
-<h3 id="1.2">1.2 Controller</h3>
+## 1.2. Controller
 
 `controller`连接`View`和`Model`，内部有很多函数，配合数据库处理用户的请求
 
@@ -154,7 +140,7 @@ class Content extends CI_Controller
 }
 ```
 
-<h4 id="1.2.1">1.2.1 路由</h4>
+### 1.2.1. 路由
 
 先说下路由，路由是`controller`中重要的部分，决定URL和`controller`中的方法的映射关系
 
@@ -175,7 +161,7 @@ DELETE localhost/content/10
 
 路由的设置在`config/routes.php`中
 
-<h4 id="1.2.2">1.2.2 传参</h4>
+### 1.2.2. 传参
 
 上面的代码有两种传参
 
@@ -217,7 +203,7 @@ $this->load->view('template/index', $data);
 
 ---
 
-<h3 id="1.3">1.3 View</h3>
+### 1.3 View
 
 数据有了就可以开始写页面了，按下面的文件结构创建好文件（无后缀的是文件夹）
 
