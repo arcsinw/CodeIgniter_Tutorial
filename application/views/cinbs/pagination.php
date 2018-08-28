@@ -1,8 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><?php echo $title ?></title>
+	<link rel="stylesheet" href="<?= base_url('/public/css/one.css'); ?>" type="text/css"/>
+	<link rel="stylesheet" href="<?= base_url('/public/bootstrap/css/bootstrap.min.css'); ?>" type="text/css"/>
+	<link rel="stylesheet" href="<?= base_url('/public/css/site.css'); ?>" type="text/css"/>
+	<link rel="stylesheet" href="<?= base_url('/public/css/github_markdown.css'); ?>" type="text/css"/>
+	<link rel="stylesheet" href="<?= base_url('/public/bootstrap/css/bootstrap-datetimepicker.min.css'); ?>"
+		  type="text/css"/>
+
+	<script src="<?= base_url('/public/showdown/showdown.min.js'); ?>"></script>
+	<script src="<?= base_url('/public/js/jquery-1.10.2.js'); ?>"></script>
+	<script src="<?= base_url('/public/bootstrap/js/bootstrap.js'); ?>"></script>
+	<script src="<?= base_url('/public/js/modernizr-2.6.2.js'); ?>"></script>
+	<script src="<?= base_url('/public/js/respond.js'); ?>"></script>
+	<script src="<?= base_url('/public/bootstrap/js/bootstrap-datetimepicker.min.js'); ?>"></script>
+	<script src="<?= base_url('/public/bootstrap/js/bootstrap-datetimepicker.zh-CN.js'); ?>"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+
+	<!-- Latest compiled and minified Locales -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+</head>
+<body>
 <div class="row">
-	<h1>示例：</h1>
-	<div class="container">
+	<div class="container-fluid">
 		<div id="toolbar">
 			<div class="form-inline" role="form">
+
 				<div class="form-group">
 					<span>ID: </span>
 					<input name="id" class="form-control" type="text" placeholder="Search">
@@ -32,7 +66,7 @@
 			   data-method="post"
 			   data-query-params="queryParams"
 			   data-content-type="application/x-www-form-urlencoded"
-			   data-url="<?=base_url('/bootstrap/getAnswer');?>"
+			   data-url="<?= base_url('/cinbs/getAnswer'); ?>"
 			   data-height="400"
 			   data-side-pagination="server"
 			   data-pagination="true"
@@ -51,38 +85,11 @@
 			</thead>
 		</table>
 	</div>
-
-	<article class="markdown-body col-md-8 col-md-offset-2" id="doc">
-
-	</article>
-
-	
-	<!--上一篇&下一篇-->
-	<div class="one-pager col-md-8 col-md-offset-2">
-		<a class="previous" href="<?=base_url('/bootstrap/modal');?>">上一篇：CI和Bootstrap模态框</a>
-
-		<a class="next disabled">下一篇：无</a>
-	</div>
 </div>
-
+</body>
+</html>
 
 <script>
-	var converter = new showdown.Converter();
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', '<?=base_url('/public/files/bootstrap/pagination.md');?>', false);
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) {
-			text = xhr.responseText;
-			html = converter.makeHtml(text);
-			document.getElementById('doc').innerHTML = html;
-		}
-	}
-	xhr.send();
-
-	$('pre code').each(function (i, block) {
-		hljs.highlightBlock(block);
-	});
-
 	function queryParams(params) {
 		$('#toolbar').find('input[name]').each(function () {
 			params[$(this).attr('name')] = $(this).val();
@@ -98,9 +105,9 @@
 
 
 	$('.form_date').datetimepicker({
-		language:  'zh-CN',
+		language: 'zh-CN',
 		weekStart: 1,
-		todayBtn:  1,
+		todayBtn: 1,
 		autoclose: 1,
 		todayHighlight: 1,
 		startView: 2,

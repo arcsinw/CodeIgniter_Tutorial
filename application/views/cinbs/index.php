@@ -1,16 +1,10 @@
-# CI和Bootstrap模态框
+<div class="row">
 
-本文是使用CI作为后台，前台使用bootstrap，实现模态框效果，故首先需要学习bootstrap相关知识，[点击学习](https://v3.bootcss.com/)。
+	<article class="markdown-body col-md-8 col-md-offset-2" id="doc">
+	</article>
+</div>
 
-本文基于bootstrap的模态框插件，[点击学习bootstrap模态框](https://v3.bootcss.com/javascript/#modals)。
-
-## 提示框
-
-弹出模态框，为用户显示一些提示信息，用户可以点击确认关闭。
-
-前端代码：
-
-```html
+<!-- 提示框 begin -->
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -31,23 +25,9 @@
 		</div>
 	</div>
 </div>
-```
+<!-- 提示框 end -->
 
-```javascript
-$("#exampleButton1").on("click", function () {
-		$("#myModal1").modal('show');
-	});
-```
-
-**效果示例，<a href="javascript:;" id="exampleButton1">点击查看</a>**
-
-## 确认框
-
-当用户需要进行某些需要慎重考虑的操作时，为防止用户误操作，弹出模态框，显示一些提示信息，用户点击确认继续操作或点击取消。
-
-前端代码：
-
-```html
+<!-- 确认框 begin -->
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -66,30 +46,9 @@ $("#exampleButton1").on("click", function () {
 		</div>
 	</div>
 </div>
-```
+<!-- 确认框 end -->
 
-```javascript
-	$("#exampleButton2").on("click", function () {
-		$("#myModal2").modal('show');
-	});
-	$("#myModal2 .confirm").on("click", function () {
-		alert("点击了确定按钮，确认框将关闭");
-
-		//点击确认后执行的代码
-
-		$("#myModal2").modal('hide');
-	});
-```
-
-**效果示例，<a href="javascript:;" id="exampleButton2">点击查看</a>**
-
-## 填写信息框
-
-弹出模态框，要求用户填写表单，点击确认后提交用户填写的信息到后台。
-
-前端代码：
-
-```html
+<!-- 填写信息框 begin -->
 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -117,33 +76,9 @@ $("#exampleButton1").on("click", function () {
 		</div>
 	</div>
 </div>
-```
+<!-- 填写信息框 end -->
 
-```javascript
-	$("#exampleButton3").on("click", function () {
-		$("#myModal3").modal('show');
-	});
-
-	$("#myModal3 .confirm").on("click", function () {
-		var name = $("#myModal3 input[name='name']").val();
-		var phone = $("#myModal3 input[name='phone']").val();
-		alert("点击了确定按钮，姓名：" + name + "，电话：" + phone);
-
-		//异步提交表单的代码
-
-		$("#myModal3").modal('hide');
-	});
-```
-
-**效果示例，<a href="javascript:;" id="exampleButton3">点击查看</a>**
-
-## 动态加载模态框内容
-
-动态地从服务端加载模态框需要显示的内容，将会显示到`<div class="modal-content"></div>`内。
-
-前端代码：
-
-```html
+<!-- 动态加载模态框内容 begin -->
 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -159,9 +94,79 @@ $("#exampleButton1").on("click", function () {
 		</div>
 	</div>
 </div>
-```
+<!-- 动态加载模态框内容 end -->
 
-```javascript
+<!-- 分页示例模态框 begin -->
+<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel6">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+						aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel6">分页示例</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 分页示例模态框 end -->
+
+<script>
+	var converter = new showdown.Converter();
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', '<?=base_url('/public/files/cinbs/index.md');?>', false);
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) {
+			text = xhr.responseText;
+			html = converter.makeHtml(text);
+			document.getElementById('doc').innerHTML = html;
+		}
+	}
+	xhr.send();
+
+	$('pre code').each(function (i, block) {
+		hljs.highlightBlock(block);
+	});
+
+	//提示框代码 begin
+	$("#exampleButton1").on("click", function () {
+		$("#myModal1").modal('show');
+	});
+	//提示框代码 end
+
+	//确认框代码 begin
+	$("#exampleButton2").on("click", function () {
+		$("#myModal2").modal('show');
+	});
+	$("#myModal2 .confirm").on("click", function () {
+		alert("点击了确定按钮，确认框将关闭");
+
+		//点击确认后执行的代码
+
+		$("#myModal2").modal('hide');
+	});
+	//确认框代码 end
+
+	//填写信息框代码 begin
+	$("#exampleButton3").on("click", function () {
+		$("#myModal3").modal('show');
+	});
+
+	$("#myModal3 .confirm").on("click", function () {
+		var name = $("#myModal3 input[name='name']").val();
+		var phone = $("#myModal3 input[name='phone']").val();
+		alert("点击了确定按钮，姓名：" + name + "，电话：" + phone);
+
+		//异步提交表单的代码
+
+		$("#myModal3").modal('hide');
+	});
+	//填写信息框代码 end
+
+	//动态加载模态框代码 begin
 	$("#exampleButton4").on("click", function () {
 
 		$("#myModal4 .modal-body").html("<p>正在加载...</p>");
@@ -169,29 +174,14 @@ $("#exampleButton1").on("click", function () {
 
 		$("#myModal4").modal('show');
 	});
-```
+	//动态加载模态框代码 end
 
-后端代码：
+	//多层模态框代码 begin
 
-```php
-	public function remote()
-	{
-		sleep(1);
-		echo "<h1>我是从服务端动态加载出来的！</h1>";
-	}
-```
+	var modal_count = 0;
 
-**效果示例，<a href="javascript:;" id="exampleButton4">点击查看</a>**
-
-
-## 多层模态框
-
-显示一层模态框后继续弹出更多模态框。
-
-前端代码：
-
-```javascript
 	function generateModal(no) {
+
 		var $modal = $('<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"' + no + '>\n' +
 			'\t<div class="modal-dialog" role="document">\n' +
 			'\t\t<div class="modal-content">\n' +
@@ -213,15 +203,35 @@ $("#exampleButton1").on("click", function () {
 		$modal.find(".confirm").on("click", function () {
 			generateModal(no + 1).modal("show");
 		});
-		$($modal).on('hidden.bs.modal', function (e) {
-			$modal.remove();
+
+		$modal.on('shown.bs.modal', function()
+		{
+			modal_count++;
 		});
-        return $modal;
+
+		$modal.on('hidden.bs.modal', function () {
+			$modal.remove();
+
+			if (--modal_count > 0)
+			{
+				$('body').addClass('modal-open');
+			}
+		});
+		return $modal;
 	}
 
 	$("#exampleButton5").on("click", function () {
 		generateModal(1).modal("show");
 	});
-```
 
-**效果示例，<a href="javascript:;" id="exampleButton5">点击查看</a>**
+	//多层模态框代码 end
+
+	$(".exampleButton6").on("click", function () {
+
+		$("#myModal6 .modal-body").html("<p>正在加载...</p>");
+		$("#myModal6 .modal-body").load("<?=base_url('/cinbs/pagination');?>");
+
+		$("#myModal6").modal('show');
+	});
+
+</script>
