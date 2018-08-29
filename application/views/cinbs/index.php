@@ -2,6 +2,14 @@
 
 	<article class="markdown-body col-md-8 col-md-offset-2" id="doc">
 	</article>
+
+	<a href="#" id="top-btn" class="btn btn-default" title="返回顶部"
+	   style="position: fixed;bottom: 30px;right: 30px;display: none;"
+	   href="javascript:$('body').animate( {scrollTop: 0}, 500);">
+		<svg xmlns="http://www.w3.org/2000/svg" width="19" height="12" style="text-align: center;line-height: 22px;">
+			<path d="M9.314 0l9.313 9.314-2.12 2.121-7.193-7.192-7.193 7.192L0 9.314z"></path>
+		</svg>
+	</a>
 </div>
 
 <!-- 提示框 begin -->
@@ -237,5 +245,35 @@
 
 		$("#myModal6").modal('show');
 	});
+
+
+	 $(function()
+	 {
+		 $(window).scroll(function(){
+			 t = $(document).scrollTop();
+			 if (t > 1000)
+			 {
+				 $('#top-btn').fadeIn();
+			 }
+			 else
+			 {
+				 $('#top-btn').fadeOut();
+			 }
+		 })
+	 });
+
+	 var $root = $('html, body');
+
+	 $('a[href^="#"]').click(function() {
+		 var href = $.attr(this, 'href');
+		 var a = document.getElementById(href);
+		 $root.animate({
+			 scrollTop: a.offset().top
+		 }, 500, function () {
+			 window.location.hash = href;
+		 });
+
+		 return false;
+	 });
 
 </script>
