@@ -1,73 +1,37 @@
 <div class="row">
-    <div class="col-md-4 category">
-        <ul>
-            <li>
-                <p><a href="#1introducecodeigniter">1. Introduce CodeIgniter</a></p>
-                <ul>
-                    <li>
-                        <p><a href="#11codeigniter">1.1 下载CodeIgniter</a></p>
-                    </li>
-                </ul>
-                <p></p>
-            </li>
-            <li>
-                <p><a href="#2createyourfirstcodeigniterproject">2. Create your first CodeIgniter project</a></p>
-                <ul>
-                    <li>
-                        <p><a href="#21loginphp">2.1 写一个静态登录页面login.php</a></p>
-                    </li>
-                    <li>
-                        <p><a href="#22controllerloginphp">2.2 通过controller打开login.php</a></p>
-                        <ul>
-                            <li>
-                                <p><a href="#221">2.2.1 修改路由</a></p>
-                            </li>
-                            <li>
-                                <p><a href="#222urlindexphp">2.2.2 移除url中的index.php</a></p>
-                            </li>
-                        </ul>
-                        <p></p>
-                    </li>
-                    <li>
-                        <p><a href="#23loginphp">2.3 给login.php加上登录功能</a></p>
-                    </li>
-                    <li>
-                        <p><a href="#23contentphp">2.3 增加一个content.php页面</a></p>
-                        <ul>
-                            <li>
-                                <p><a href="#231">2.3.1 增加一个数据库</a></p>
-                            </li>
-                        </ul>
-                        <p></p>
-                    </li>
-                    <li>
-                        <p><a href="#24h4">2.4 其他</a></p>
-                        <ul>
-                            <li>
-                                <p><a href="#241view">2.4.1 在View中使用模板页</a></p>
-                            </li>
-                            <li>
-                                <p><a href="#242h5">2.4.2 辅助函数</a></p>
-                            </li>
-                            <li>
-                                <p><a href="#243">2.4.3 钩子</a></p>
-                            </li>
-                            <li>
-                                <p><a href="#244">2.4.4 错误处理</a></p>
-                            </li>
-                            <li>
-                                <p><a href="#245">2.4.5 网页缓存</a></p>
-                            </li>
-                            <li>
-                                <p><a href="#246">2.4.6 存放资源文件</a></p>
-                            </li>
-                        </ul>
-                        <p></p>
-                    </li>
-                </ul>
-                <p></p>
-            </li>
-        </ul>
+    <div class="col-md-4 markdown-body">
+    
+        <div class="toc">
+            <ul>
+            <li><p><a href="#1introducecodeigniter">1. Introduce CodeIgniter</a></p><ul>
+            <li><p><a href="#11codeigniter">1.1 下载CodeIgniter</a></p></li>
+            </ul>
+            <p></p></li>
+            <li><p><a href="#2createyourfirstcodeigniterproject">2. Create your first CodeIgniter project</a></p><ul>
+            <li><p><a href="#21loginphp">2.1 写一个静态登录页面login.php</a></p></li>
+            <li><p><a href="#22controllerloginphp">2.2 通过controller打开login.php</a></p><ul>
+            <li><p><a href="#221">2.2.1 修改路由</a></p></li>
+            <li><p><a href="#222urlindexphp">2.2.2 移除url中的index.php</a></p></li>
+            </ul>
+            <p></p></li>
+            <li><p><a href="#23loginphp">2.3 给login.php加上登录功能</a></p></li>
+            <li><p><a href="#23contentphp">2.3 增加一个content.php页面</a></p><ul>
+            <li><p><a href="#231">2.3.1 增加一个数据库</a></p></li>
+            </ul>
+            <p></p></li>
+            </ul>
+            <p></p></li>
+            <li><p><a href="#3">3 其他</a></p><ul>
+            <li><p><a href="#31view">3.1 在View中使用模板页</a></p></li>
+            <li><p><a href="#32h5">3.2 辅助函数</a></p></li>
+            <li><p><a href="#33">3.3 钩子</a></p></li>
+            <li><p><a href="#34">3.4 错误处理</a></p></li>
+            <li><p><a href="#34-1">3.4 网页缓存</a></p></li>
+            <li><p><a href="#35">3.5 存放资源文件</a></p></li>
+            </ul>
+            <p></p></li>
+            </ul>
+        </div>
     </div>
 
     <article class="markdown-body col-md-8" id="doc">

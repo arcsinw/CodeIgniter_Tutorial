@@ -138,10 +138,10 @@ MVC 是一种 用于将应用程序的逻辑层和表现层分离出来的软件
 
 当然实际项目中不可能这么干，接下来写controller来正确打开view
 
-在`controller/demo`目录下新建一个`Login.php`作为controller
+在`controllers/demo`目录下新建一个`Login.php`作为controller
 
 ```txt
--controller
+-controllers
     --demo
         ---login.php
 ```
@@ -212,7 +212,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 ```
 
-然后就能通过`localhost/tutorial/index.php/login/index`访问到登录页面了
+然后就能通过
+<a href="/tutorial/index.php/demo/login/index" target="_blank">localhost/tutorial/index.php/demo/login/index</a>访问到登录页面了
 
 ### 2.2.2 移除url中的index.php
 
@@ -259,7 +260,7 @@ RewriteRule ^(.*)$ /tutorial/index.php/$1 [L]
 </IfModule>
 ```
 
-接下来就可以用`localhost/tutorial/demo/login`访问登录页面了
+接下来就可以用<a target="_blank" href="/tutorial/demo/login">localhost/tutorial/demo/login</a>访问登录页面了
 
 localhost 本地主机
 tutorial 项目名
@@ -335,6 +336,8 @@ public function login()
 </script>
 ```
 
+<a href="/tutorial/demo/login">查看Demo</a>  输入Email为root，密码为111111时可成功登录
+
 ## 2.3 增加一个content.php页面
 
 到这里一个简单的登录方法就做好了，接下来写`demo/content`页面
@@ -401,6 +404,57 @@ public function login()
 接下来写model，负责和数据库交互，包含很多数据库相关方法
 
 如果对数据库不了解，[MySQL 教程 | 菜鸟教程](http://www.runoob.com/mysql/mysql-tutorial.html)
+
+执行下面的sql语句，就能得到项目所需的数据库
+
+```sql
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : mysql
+Source Server Version : 80011
+Source Host           : localhost:3306
+Source Database       : one_db
+
+Target Server Type    : MYSQL
+Target Server Version : 80011
+File Encoding         : 65001
+
+Date: 2018-09-01 16:01:31
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for content
+-- ----------------------------
+DROP TABLE IF EXISTS `content`;
+CREATE TABLE `content` (
+  `Id` int(11) NOT NULL,
+  `ContentType` int(11) NOT NULL,
+  `Category` int(11) NOT NULL,
+  `Date` longtext,
+  `PostDate` datetime NOT NULL,
+  `Title` longtext,
+  `Url` longtext,
+  `ImgUrl` longtext,
+  `PictureAuthor` longtext,
+  `Text` longtext,
+  `TextAuthors` longtext,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 
+COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of content
+-- ----------------------------
+INSERT INTO `content` VALUES ('1', '0', '0', null, '2018-07-18 06:00:00', 'VOL.2111', 'http://m.wufazhuce.com/one/2141', 'http://image.wufazhuce.com/FnzSulbFSURY4bDlKX07aJpTwq8-', '摄影 | Li Hui', '我们都是软弱的人，所以才会说谎。我们都是胆小的人，所以才要武装。我们都是一群笨蛋，所以才会互相伤害。', '《池袋西口公园》');
+INSERT INTO `content` VALUES ('2', '0', '0', null, '2018-07-17 06:00:00', 'VOL.2110', 'http://m.wufazhuce.com/one/2140', 'http://image.wufazhuce.com/FkV_09zLc03JoLBRdQmwMIEu50Ac', '摄影 | Pierre Yves Burgi', '残暴是爱的对立面，不是什么笨拙的表达爱的方式。', '《梅尔罗斯》');
+INSERT INTO `content` VALUES ('3', '0', '0', null, '2018-07-16 06:00:00', 'VOL.2109', 'http://m.wufazhuce.com/one/2139', 'http://image.wufazhuce.com/FnpAy5Se9Zp9jLbBJUCrSabBPOrt', '插画 | Shelia Liu', '我们都会成为我们装扮的样子，所以装扮的时候，一定要小心。', '库尔特·冯内古特');
+INSERT INTO `content` VALUES ('4', '0', '0', null, '2018-07-15 06:00:00', 'VOL.2108', 'http://m.wufazhuce.com/one/2138', 'http://image.wufazhuce.com/FqLLR2DNaRvWt0iXDl5FlveYjYAQ', '插画 | 狐狸狐狸鱼', '人类总是想着“也许万一用得到呢”，所以很多没用的东西就一直保留下来了。', '伊坂幸太郎');
+INSERT INTO `content` VALUES ('5', '0', '0', null, '2018-07-14 06:00:00', 'VOL.2107', 'http://m.wufazhuce.com/one/2137', 'http://image.wufazhuce.com/FlxYkIWt6yzB3p-cAbbPm5w5YdWz', '摄影 | Felix Russell Saw', '所谓人生，大概就是不停滚动，遇见爱，错过爱，接受缺憾吧。', '赫恩曼尼');
+INSERT INTO `content` VALUES ('6', '0', '0', null, '2018-07-13 06:00:00', 'VOL.2106', 'http://m.wufazhuce.com/one/2136', 'http://image.wufazhuce.com/Fpdc0BftADUelskTLmsxwtHtwWjz', '摄影 | 王十元', '成天想着自己是不是快乐，是通往抑郁的捷径。', '大将军郭');
+```
 
 要连接数据库，先要填写好数据库的信息
 
@@ -522,8 +576,8 @@ class Content extends CI_Controller
 ```
 
 到这/demo/content就写完了，通过
-localhost/tutorial/index.php/content/128 或
-localhost/tutorial/index.php/content/index/128
+<a target="_blank" href="/tutorial/demo/content/128">localhost/tutorial/demo/content/128</a> 或
+<a target="_blank" href="/tutorial/demo/content/index/128">localhost/tutorial/demo/content/index/128</a>
 就能访问到Content.php中的index函数，并且参数$id=128
 
 `Get` vs `Post`
@@ -560,11 +614,13 @@ $this->load->view('template/index', $data);
 最后的效果是
 `localhost/tutorial/demo/login`打开登录界面，输入`root`, `111111`就能进入`demo/content`页面，否则显示账号或密码输入错误
 
+<a href="/tutorial/demo/login">查看Demo</a>
+
 ---
 
-## 2.4 其他</h4>
+# 3 其他
 
-### 2.4.1 在View中使用模板页
+## 3.1 在View中使用模板页
 
 考虑到网页的一些部分是固定不变的，比如`header`（顶部的导航栏）和`footer`（顶部的版权信息），每个页面里都把代码重新抄一遍没有必要，可以考虑写一个模板页，
 
@@ -646,13 +702,13 @@ footer一般放一些版权信息
 </html>
 ```
 
-### 2.4.2 辅助函数</h5>
+## 3.2 辅助函数</h5>
 
 即其他网页框架中自己创建的Helper类，一般是一些常用的方法，CI中的Helper类加载之后不需要类名可直接使用
 
 比如`helpers/cac_time_helper.php`中实现了时间字符串的格式化，在Controller中load后可直接在View中使用
 
-### 2.4.3 钩子
+## 3.3 钩子
 
 钩子可以用来在程序执行流程中加入自己的动作，比如在执行需要登陆的操作前检测用户是否登陆
 
@@ -682,11 +738,11 @@ $hook['post_controller_constructor'] = array(
 - filepath 包含你的脚本文件的目录名。 注意： 你的脚本必须放在 application/ 目录里面，所以 filepath 是相对 application/ 目录的路径，举例来说，如果你的脚本位于 application/hooks/ ，那么 filepath 可以简单的设置为 'hooks' ，如果你的脚本位于 application/hooks/utilities/ ， 那么 filepath 可以设置为 'hooks/utilities' ，路径后面不用加斜线。
 - params 你希望传递给你脚本的任何参数，可选。
 
-`post_controller_constructor`时挂钩点，指定钩子被触发的场景
+`post_controller_constructor`是挂钩点，指定钩子被触发的场景
 
 具体的场景参考 [钩子 - 扩展框架核心](http://codeigniter.org.cn/user_guide/general/hooks.html)
 
-### 2.4.4 错误处理
+## 3.4 错误处理
 
 当网页出错时可以选择跳转error page或404，在CI中都有默认的模板可以修改样式
 
@@ -716,7 +772,7 @@ log_message($level, $message)
 $config['log_threshold'] = 1;
 ```
 
-### 2.4.5 网页缓存
+## 3.4 网页缓存
 
 当网页的内容更新频率不高时可以开启缓存减轻一些服务器压力（主要是数据库），产生类似静态网页的效果
 
@@ -733,7 +789,7 @@ $this->output->delete_cache();
 $this->output->delete_cache('/foo/bar');
 ```
 
-### 2.4.6 存放资源文件
+## 3.5 存放资源文件
 
 浏览器的请求中很大一部分是在获取js和css，可以通过加快这些元素的获取来加快网页加载，从别人的CDN或服务器上获取虽然方便但不可控，推荐自己下载一份到服务器上，或者放到自己的CDN中，下面是将js和css放在服务器本地
 

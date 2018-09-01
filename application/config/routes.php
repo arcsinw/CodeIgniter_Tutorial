@@ -54,8 +54,9 @@ $route['default_controller'] = 'html/index';
 // $route['(.*)?/(:num)'] = '$1/index/$2';
 // $route['(.*)'] = '$1/index';
 
-$route['demo/(.*)?/(:num)'] = 'demo/$1/index/$2';
-$route['demo/(.*)?'] = 'demo/$1/index';
+$route['demo/(:any)/(:num)'] = 'demo/$1/index/$2';
+
+//$route['demo/(.*)?/(.*)?/(:num)'] = 'demo/$1/$2/$3';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
