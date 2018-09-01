@@ -76,12 +76,12 @@
   };
 
   TocEntry.prototype.toString = function() {
-    var result = "<li>";
+    var result = "<li><p>";
     if (this.text) {
       result += "<a href=\"#" + this.anchor + "\">" + this.text + "</a>";
     }
     result += this.childrenToString();
-    result += "</li>\n";
+    result += "</p></li>\n";
     return result;
   };
 

@@ -10,6 +10,7 @@ class Content extends CI_Controller
         $this->load->helper('url');
         $this->load->helper('cac_time');
         //$this->output->cache($this->expire_time);
+        $this->output->enable_profiler(TRUE);
     }
 
     public function index($id = -1)

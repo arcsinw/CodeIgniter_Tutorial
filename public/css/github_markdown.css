@@ -209,7 +209,8 @@
   }
   
   .markdown-body a {
-    color: #0366d6;
+    /* color: #0366d6; */
+    color: #4183c4;
     text-decoration: none;
   }
   

@@ -12,7 +12,11 @@
 </div>
 
 <script>
-    var converter = new showdown.Converter();
+    var converter = new showdown.Converter(
+    {
+        tables: 'true',
+        extensions: ['toc'],
+    });
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '<?=base_url('/public/files/bootstrap/bootstrap.md');?>', true);
     xhr.onreadystatechange = function()

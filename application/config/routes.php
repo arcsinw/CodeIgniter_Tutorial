@@ -50,9 +50,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'html/index';
-$route['(.*)?/(.*)?/(:num)'] = '$1/$2/$3';
-$route['(.*)?/(:num)'] = '$1/index/$2';
-$route['(.*)?/(.*)?'] = '$1/$2';
-$route['(.*)'] = '$1/index';
+// $route['(.*)?/(.*)?/(:num)'] = '$1/$2/$3';
+// $route['(.*)?/(:num)'] = '$1/index/$2';
+// $route['(.*)'] = '$1/index';
+
+$route['demo/(.*)?/(:num)'] = 'demo/$1/index/$2';
+$route['demo/(.*)?'] = 'demo/$1/index';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

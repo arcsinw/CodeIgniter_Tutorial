@@ -23,3 +23,30 @@ textarea {
     margin: 0 auto;
     box-sizing: border-box; */
 }
+
+@media (-webkit-max-device-pixel-ratio: 1) {
+    ::-webkit-scrollbar-track-piece {
+        background-color:#FFF
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #c2c2c2;
+        background-clip: padding-box;
+        min-height: 28px
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #A0A0A0
+    }
+}
+
+.category {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+}
