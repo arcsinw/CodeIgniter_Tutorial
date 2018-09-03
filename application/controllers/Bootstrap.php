@@ -13,4 +13,9 @@ class Bootstrap extends CI_Controller
         $data['title'] = 'BootStrap';
         $this->load->view('template/index', $data);
     }
+
+    public function tryIt($page)
+    {
+        $this->load->view('bootstrap/'. $page);
+    }
 }

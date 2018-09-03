@@ -18,7 +18,7 @@
         extensions: ['toc'],
     });
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '<?=base_url('/public/files/bootstrap/bootstrap.md');?>', true);
+    xhr.open('GET', '<?=base_url('/public/files/bootstrap.md');?>', true);
     xhr.onreadystatechange = function()
     {
         if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304)

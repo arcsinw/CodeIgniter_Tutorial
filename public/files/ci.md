@@ -10,7 +10,7 @@ CodeIgniter 是一套给 PHP 网站开发者使用的应用程序开发框架和
 
 > [php, apache, VS Code安装与配置](https://www.cnblogs.com/arcsinw/p/9416318.html)
 
-> 本项目的完整代码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[CodeIgniter_Tutorial](https://github.com/arcsinw/CodeIgniter_Tutorial)
+> 本项目的完整代码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://github.com/arcsinw/CodeIgniter_Tutorial" target="_blank">CodeIgniter_Tutorial </a>
 
 ## 1.1 下载CodeIgniter
 
@@ -489,6 +489,12 @@ $db['default'] = array(
 
 填写好信息后，在`models`目录下新建一个`Content_model.php`文件
 
+下面这行代码会读取上面填写的数据库信息，完成连接数据库的操作
+
+```php
+$this->load->database();
+```
+
 **models/Content_Model.php**
 
 ```php
@@ -537,7 +543,7 @@ class Content extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Content_Model');
+        $this->load->model('Content_Model'); // load之后就可以$this->Content_Model来查询数据库
         $this->load->helper('url');
         $this->load->helper('cac_time'); //加载辅助函数
     }
